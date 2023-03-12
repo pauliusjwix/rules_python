@@ -28,6 +28,13 @@ DEFAULT_RELEASE_BASE_URL = "https://github.com/indygreg/python-build-standalone/
 #
 # buildifier: disable=unsorted-dict-items
 TOOL_VERSIONS = {
+    "3.7.9": {
+        "url": "20200823/cpython-{python_version}-{platform}-pgo-20200823T2228.tar.zst",
+        "sha256": {
+            "x86_64-apple-darwin": "53657e7712cc7b24491fb1fc66dcc8f47a577fc77df137178746987ba4c5afb8",
+        },
+        "strip_prefix": "python",
+    },
     "3.8.10": {
         "url": "20210506/cpython-{python_version}-{platform}-pgo+lto-20210506T0943.tar.zst",
         "sha256": {
@@ -161,6 +168,7 @@ TOOL_VERSIONS = {
 
 # buildifier: disable=unsorted-dict-items
 MINOR_MAPPING = {
+    "3.7": "3.7.9",
     "3.8": "3.8.15",
     "3.9": "3.9.15",
     "3.10": "3.10.8",
