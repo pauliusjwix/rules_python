@@ -245,12 +245,15 @@ def get_release_url(platform, python_version, base_url = DEFAULT_RELEASE_BASE_UR
     if type(strip_prefix) == type({}):
         strip_prefix = strip_prefix[platform]
 
-    release_filename = url.format(
-        platform = platform,
-        python_version = python_version,
-        build = "shared-install_only" if (WINDOWS_NAME in platform) else "install_only",
-    )
+    release_filename = ""
+
+    if platform=="x86_64-apple-darwin":
+        url = "20200822/cpython-3.7.9-x86_64-apple-darwin-pgo-20200823T0123.tar.zst"
+    else:
+        url = "20200822/cpython-3.7.9-x86_64-unknown-linux-gnu-pgo-20200823T0036.tar.zst"
+
     url = "/".join([base_url, release_filename])
+
     return (release_filename, url, strip_prefix)
 
 def print_toolchains_checksums(name):
